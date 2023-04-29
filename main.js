@@ -1,4 +1,5 @@
 const words = ['fish', 'cat', 'dog', 'monkey', 'absolute', 'catholic', 'weeping'];
+const bodyParts = ['head', 'torso', 'armLeft', 'armRight', 'legLeft', 'legRight'];
 let activeWord;
 let activeWordLetters;
 let guessedLetters = [];
@@ -30,16 +31,18 @@ function generateAlphabet() {
 // Create function to run on each change to check the state of the hangman, active letters
 function updateData(e) {
     let letterClicked = e.target;
+    let wrongGuesses = [];
+
     console.log(letterClicked);
     if (guessedLetters.includes(letterClicked)) {
         return;
     }
     letterClicked.classList.add('clicked-letter');
     guessedLetters.push(letterClicked.innerText);
-    let activeWordLetters = document.getElementsByClassName('letter-box');
-    console.log(activeWordLetters, ' : activeWordLetters');
-    for (let i = 0; i < activeWordLetters.length; i++) {
-        let letter = activeWordLetters.item(i);
+    let activeWordLettersDom = document.getElementsByClassName('letter-box');
+    console.log(activeWordLettersDom, ' : activeWordLetters');
+    for (let i = 0; i < activeWordLettersDom.length; i++) {
+        let letter = activeWordLettersDom.item(i);
         letter.classList.remove('showing');
         let guessedLetter = guessedLetters.find(gl => {
             return letter.innerText === gl;
@@ -48,6 +51,16 @@ function updateData(e) {
             letter.classList.add('showing');
         }
     };
+
+    // Work out what number of the guesses are incorrect
+    // How many of the letters in guessedLetters are not in activeWordLetters
+    wrongGuesses = guessedLetters.filter(letter => {
+        return !activeWordLetters.includes(letter);
+    })
+    for (let i = 0; i < wrongGuesses.length; i++) {
+        let bodyPartDom = document.getElementById(bodyParts[i]);
+        bodyPartDom.classList.add('showing');
+    }
 };
 
 function loadGame() {

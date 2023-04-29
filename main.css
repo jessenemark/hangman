@@ -65,3 +65,103 @@ body {
     text-decoration: line-through;
     opacity: 0.5;
 }
+
+.column {
+    display: flex;
+    flex: 1 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.hangman-frame {
+    width: 150px;
+    height: 150px;
+    border: 1px solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.base {
+    width: 150px;
+    height: 20px;
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+}
+
+.bar {
+    background-color: black;
+    position: absolute;
+}
+
+.bar.one {
+    width: 2px;
+    height: 100px;
+    left: 30px;
+    bottom: 20px;
+}
+
+.bar.two {
+    width: 52px;
+    height: 2px;
+    left: 50%;
+    bottom: 119px;
+    margin-left: -52px;
+}
+
+.bar.three {
+    width: 2px;
+    height: 10px;
+    left: 50%;
+    top: 29px;
+}
+
+.body-part {
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+}
+
+.body-part.showing {
+    opacity: 1;
+}
+
+.head {
+    width: 21px;
+    height: 21px;
+    left: 50%;
+    margin-left: -10.5px;
+    top: 39px;
+    border-radius: 100%;
+}
+
+.torso {
+    width: 2px;
+    height: 33px;
+    left: 50%;
+    top: 60px;
+}
+
+.limb {
+    width: 20px;
+    height: 2px;
+    left: 50%;
+}
+
+.limb.left {
+    margin-left: -16px;
+    transform: rotate(-45deg);
+}
+
+.limb.right {
+    margin-left: -2px;
+    transform: rotate(45deg);
+}
+
+.limb.arm {
+    top: 75px;
+}
+
+.limb.leg {
+    top: 97px;
+}
