@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="./main.css">
-        <script src="./main.js"></script>
-    </head>
-    <body>
-        <div class="game-window">
-            <div id="bodyParts" class="row body-parts">
-                <div class="column">
-                    <div class="hangman-frame">
-                        <div class="base"></div>
-                        <div class="bar one"></div>
-                        <div class="bar two"></div>
-                        <div class="bar three"></div>
-                        <div id="head" class="body-part head"></div>
-                        <div id="torso" class="body-part torso"></div>
-                        <div id="armLeft" class="body-part limb arm left"></div>
-                        <div id="armRight" class="body-part limb arm right"></div>
-                        <div id="legLeft" class="body-part limb leg left"></div>
-                        <div id="legRight" class="body-part limb leg right"></div>
-                    </div>
-                </div>
-                <div class="column">
 
-                </div>
-            </div>
-            <div id="activeWord" class="row active-word">
-            
-            </div>
-            <div id="guessLetters" class="row guess-letters">
+<head>
+    <link rel="stylesheet" href="./main.css">
+    <script src="./main.js"></script>
+</head>
 
+<body>
+    <div class="game-window">
+        <div id="endGamePrompt" class="end-game-prompt">
+            <div class="row">
+                <p class="prompt-title">You <span id="gameState"></span>!</p>
+            </div>
+            <div class="row">
+                <p class="answer">Answer: <span id="answer"></span></p>
+            </div>
+            <div class="row">
+                <button onclick="reloadGame()" type="button" class="replay-button">Play again?</button>
             </div>
         </div>
-    </body>
+        <div id="bodyParts" class="row body-parts">
+            <div class="hangman-frame">
+                <div class="base"></div>
+                <div class="bar one"></div>
+                <div class="bar two"></div>
+                <div class="bar three"></div>
+                <div id="head" class="body-part head"></div>
+                <div id="torso" class="body-part torso"></div>
+                <div id="armLeft" class="body-part limb arm left"></div>
+                <div id="armRight" class="body-part limb arm right"></div>
+                <div id="legLeft" class="body-part limb leg left"></div>
+                <div id="legRight" class="body-part limb leg right"></div>
+            </div>
+        </div>
+        <div id="activeWord" class="row active-word">
+
+        </div>
+        <div id="guessLetters" class="row guess-letters">
+
+        </div>
+    </div>
+</body>
+
 </html>
